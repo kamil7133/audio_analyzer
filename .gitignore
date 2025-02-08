@@ -3,3 +3,6 @@
 /test_analyzer.py
 /test.wav
 test_separated/
+cache/
+temp/
+tests/
