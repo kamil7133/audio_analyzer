@@ -1,9 +1,5 @@
 # 🎵 Audio Analyzer Pro - Professional Audio Processing Suite
 
-[![CI/CD Pipeline](https://github.com/yourusername/audio-analyzer/actions/workflows/deploy.yml/badge.svg)](https://github.com/kamil7133/audio-analyzer/actions)
-[![Docker Image](https://img.shields.io/docker/pulls/yourusername/audio-analyzer)](https://hub.docker.com/r/yourusername/audio-analyzer)
-[![Python 3.8](https://img.shields.io/badge/python-3.8%20|%203.9-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Industry-grade audio analysis platform featuring**:
 - 🔍 AI-powered musical key detection
@@ -147,15 +143,17 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 💡 Contributing & Support
 
+
 **We welcome contributions!**  
-👥 Please read our [Contribution Guidelines](CONTRIBUTING.md) before submitting PRs.
+👨‍💻 Feel free to open issues and pull requests to help us improve this project.
+
 
 **Professional Support**  
 📧 For enterprise support and custom implementations, contact:  
-[![Email](https://img.shields.io/badge/Email-support%40audiopro.com-important)](mailto:support@audiopro.com)
+[![Email](https://img.shields.io/badge/Email-piwowarczykkamil23@gmail.com-important)](mailto:piwowarczykkamil23@gmail.com)
 
 ---
 
-**Architected with ❤️ by [Your Name]**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github)](https://github.com/yourusername)
+**Architected with ❤️ by kamil7133**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/kamil-piwowarczyk-6ba839322/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github)](https://github.com/kamil7133)
