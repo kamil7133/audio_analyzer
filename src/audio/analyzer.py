@@ -1,7 +1,7 @@
 import librosa
 import numpy as np
 from librosa.feature import spectral_centroid
-
+from scipy.ndimage import median_filter
 
 class AudioAnalyzer:
     def __init__(self): # used krammer's profile
@@ -75,26 +75,16 @@ class AudioAnalyzer:
 
         return f"{keys[key_index]} {mode}"
 
-    def detect_bpm(self, y: np.ndarray, sr: int) -> float:
-        onset_env = librosa.onset.onset_strength(y=y, sr=sr)
+    def detect_bpm(self, y: np.ndarray, sr: int) -> int:
+        hop_length = 512
+        onset_env = librosa.onset.onset_strength(y=y, sr=sr, hop_length=hop_length)
+
+        # Smoothing the onset envelope
+        onset_env = median_filter(onset_env, size=5)
+
         tempo = librosa.beat.tempo(onset_envelope=onset_env, sr=sr)
-        tempo_harmonic = librosa.beat.tempo(
-            y=librosa.effects.harmonic(y),
-            sr=sr,
-            aggregate=None
-        )
 
-        if np.abs(tempo[0] - np.median(tempo_harmonic)) > 10:
-            tempo_dp = librosa.beat.tempo(
-                y=y,
-                sr=sr,
-                aggregate=None,
-                hop_length=512
-            )
-
-            return float(np.median([tempo[0], np.median(tempo_harmonic), np.median(tempo_dp)]))
-
-        return float(tempo[0])
+        return int(tempo[0])
 
     def get_additional_info(self, y: np.ndarray, sr: int) -> dict:
         '''
