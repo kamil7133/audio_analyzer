@@ -1,10 +1,13 @@
-import pytest
+mport pytest
+import numpy as np
 from src.audio.loader import AudioLoader
 from unittest.mock import patch
+
 
 @pytest.fixture
 def loader():
     return AudioLoader()
+
 
 @patch('librosa.load')
 def test_load_audio(mock_load, loader):

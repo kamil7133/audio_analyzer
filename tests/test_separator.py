@@ -2,9 +2,11 @@ import pytest
 from src.audio.separator import VocalSeparator
 from unittest.mock import patch
 
+
 @pytest.fixture
 def separator():
     return VocalSeparator()
+
 
 @patch('spleeter.separator.Separator.separate_to_file')
 def test_separate_vocals(mock_separate, separator):

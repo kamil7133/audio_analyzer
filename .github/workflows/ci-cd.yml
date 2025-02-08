@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       env:
-        PYTHONPATH: ${{ github.workspace }}/src
+        PYTHONPATH: ${{ github.workspace }}/src  # Dodaj katalog src/ do PYTHONPATH
       run: |
         pytest tests/ --cov=src --cov-report=xml
 
@@ -64,15 +64,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Security scan
-      uses: securego/gosec@master
-      with:
-        args: ./...
+    - name: Install security tools
+      run: |
+        pip install bandit
+        go install github.com/securego/gosec/v2/cmd/gosec@latest
 
     - name: Run Bandit
       run: |
-        pip install bandit
         bandit -r src/
+
+    - name: Run Gosec
+      run: |
+        gosec ./...
 
   deploy-to-heroku:
     needs: [test, lint, security]
