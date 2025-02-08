@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       env:
-        PYTHONPATH: ${{ github.workspace }}/src  # Dodaj katalog src/ do PYTHONPATH
+        PYTHONPATH: ${{ github.workspace }}/src
       run: |
         pytest tests/ --cov=src --cov-report=xml
 
