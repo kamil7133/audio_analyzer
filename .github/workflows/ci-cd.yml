@@ -29,6 +29,8 @@ jobs:
         pip install -r requirements-dev.txt
 
     - name: Run tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}/src
       run: |
         pytest tests/ --cov=src --cov-report=xml
 
