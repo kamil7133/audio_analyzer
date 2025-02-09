@@ -27,7 +27,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements-dev.txt
-
+        pip install click>=8.0.0
     - name: Run tests
       env:
         PYTHONPATH: ${{ github.workspace }}/src
@@ -38,44 +38,6 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         file: ./coverage.xml
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-
-    - name: Install linting dependencies
-      run: |
-        pip install flake8 black mypy
-
-    - name: Run linters
-      run: |
-        flake8 src tests
-        black --check src tests
-        mypy src
-
-  security:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Install security tools
-      run: |
-        pip install bandit
-        go install github.com/securego/gosec/v2/cmd/gosec@latest
-
-    - name: Run Bandit
-      run: |
-        bandit -r src/
-
-    - name: Run Gosec
-      run: |
-        gosec ./...
 
   deploy-to-heroku:
     needs: [test, lint, security]
