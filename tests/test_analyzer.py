@@ -21,4 +21,4 @@ def test_detect_bpm(analyzer):
     sr = 22050
     bpm = analyzer.detect_bpm(y, sr)
     assert isinstance(bpm, int)
-    assert 60 <= bpm <= 180  # Zakładamy, że BPM będzie w rozsądnym zakresie
+    assert 60 <= bpm <= 180
