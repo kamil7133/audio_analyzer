@@ -1,4 +1,4 @@
-# 🎵 Audio Analyzer Pro - Professional Audio Processing Suite
+# 🎵 Audio Analyzer - Audio Processing Suite
 
 
 **Industry-grade audio analysis platform featuring**:
@@ -96,7 +96,7 @@ audio-analyzer/
 ├── tests/                    # Comprehensive test suite
 ├── .github/                  # CI/CD workflows
 │   └── workflows/
-│       └── deploy.yml        # Production deployment pipeline
+│       └── ci-cd.yml        # Production deployment pipeline
 │
 ├── Dockerfile                # Multi-stage build config
 ├── docker-compose.yml        # Production-grade orchestration

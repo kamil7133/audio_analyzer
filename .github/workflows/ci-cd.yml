@@ -15,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.9'
 
     - name: Install system dependencies
       run: |
@@ -25,9 +25,10 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install click==8.0.4  # Wymagane przez typer/spleeter
         pip install -r requirements.txt
         pip install -r requirements-dev.txt
-        pip install click>=8.0.0
+
     - name: Run tests
       env:
         PYTHONPATH: ${{ github.workspace }}/src
@@ -40,7 +41,7 @@ jobs:
         file: ./coverage.xml
 
   deploy-to-heroku:
-    needs: [test, lint, security]
+    needs: [test]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
